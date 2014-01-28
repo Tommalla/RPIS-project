@@ -39,13 +39,19 @@ experiment = function(k, a) {
 plotExperiment = function(k, a) {
   experiment(k, a)
 
-  plot(meanRes, type="l", col="red", ylim=c(0, 2 * a), xlim=c(0, numTests))
+  plot(meanRes, main=paste("Results for a = ", a), type="l", col="red", 
+       ylim=c(0.5 * a, 1.5 * a), xlim=c(0, numTests), xlab="Test no.", 
+       ylab="Result")
   par(new=T)
-  plot(maxRes, type="l", col="blue", ylim=c(0, 2 * a), xlim=c(0, numTests))
+  plot(maxRes, main=paste("Results for a = ", a), type="l", col="blue", 
+       ylim=c(0.5 * a, 1.5 * a), xlim=c(0, numTests), xlab="Test no.", 
+       ylab="Result")
 
-  hist(meanError, col="red", xlim=c(-a, a), ylim=c(0, numTests))
+  hist(meanError, main=paste("Histogram of error for a = ", a), col="red", 
+       xlim=c(-a, a), ylim=c(0, numTests), xlab="Error")
   par(new=T)
-  hist(maxError, col="blue", xlim=c(-a, a), ylim=c(0, numTests))
+  hist(maxError, main=paste("Histogram of error for a = ", a), col="blue", 
+       xlim=c(-a, a), ylim=c(0, numTests),xlab="Error")
 }
 
 plotExperiment(60, 100)
@@ -61,6 +67,10 @@ for(kFrac in seq(minKFrac, maxKFrac, by=fracStep)) {
   maxDevs[kFrac - minKFrac + 1] = sd(maxRes)
 }
 
-plot(meanDevs, type="l", col="red", ylim=c(0, 2* sqrt(a)), xlim=c(minKFrac, maxKFrac))
+plot(meanDevs, main="Standard deviation", type="l", col="red", 
+     ylim=c(0, 2 * sqrt(defA)), xlim=c(minKFrac, maxKFrac), 
+     xlab="Number of samples", ylab="Standard deviation")
 par(new=T)
-plot(maxDevs, type="l", col="blue", ylim=c(0, 2* sqrt(a)), xlim=c(minKFrac, maxKFrac))
+plot(maxDevs, main="Standard deviation", type="l", col="blue", 
+     ylim=c(0, 2 * sqrt(defA)), xlim=c(minKFrac, maxKFrac), 
+     xlab="Number of samples", ylab="Standard deviation")
