@@ -39,18 +39,18 @@ experiment = function(k, a) {
 plotExperiment = function(k, a) {
   experiment(k, a)
 
-  plot(meanRes, main=paste("Results for a = ", a), type="l", col="red", 
+  plot(meanRes, main=paste("Results for k = ", k, ", a = ", a), type="l", col="red", 
        ylim=c(0.5 * a, 1.5 * a), xlim=c(0, numTests), xlab="Test no.", 
        ylab="Result")
   par(new=T)
-  plot(maxRes, main=paste("Results for a = ", a), type="l", col="blue", 
+  plot(maxRes, main=paste("Results for k = ", k, ", a = ", a), type="l", col="blue", 
        ylim=c(0.5 * a, 1.5 * a), xlim=c(0, numTests), xlab="Test no.", 
        ylab="Result")
 
-  hist(meanError, main=paste("Histogram of error for a = ", a), col="red", 
+  hist(meanError, main=paste("Histogram of error for k = ", k, "a = ", a), col="red", 
        xlim=c(-a, a), ylim=c(0, numTests), xlab="Error")
   par(new=T)
-  hist(maxError, main=paste("Histogram of error for a = ", a), col="blue", 
+  hist(maxError, main=paste("Histogram of error for k = ", k, "a = ", a), col="blue", 
        xlim=c(-a, a), ylim=c(0, numTests),xlab="Error")
 }
 
