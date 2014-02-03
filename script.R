@@ -1,5 +1,4 @@
 # Tomasz Zakrzewski, tz336079, RPIS 2013/2014
-# FIXME fix labels on plots
 
 estMean = function(x) {
   return (2 * mean(x))
